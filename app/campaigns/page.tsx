@@ -1,27 +1,28 @@
 "use client"
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { Button } from "@/components/ui/button"
 import Navbar from '@/components/navbar'
 import { Search, ArrowRight } from 'lucide-react'
+import { useGoalZilla } from '@/context/GoalZillaContext'
 
-// Mock data for campaigns
-const mockCampaigns = [
-  { id: 1, title: "Eco-Friendly Water Bottle", category: "Environment", goal: 5000, raised: 3200, daysLeft: 15 },
-  { id: 2, title: "Virtual Reality Education Platform", category: "Technology", goal: 50000, raised: 35000, daysLeft: 30 },
-  { id: 3, title: "Community Garden Project", category: "Community", goal: 10000, raised: 7500, daysLeft: 20 },
-  { id: 4, title: "Indie Game Development", category: "Gaming", goal: 20000, raised: 15000, daysLeft: 25 },
-]
-
+// The CampaignsPage component fetches data from the blockchain contract
 export default function CampaignsPage() {
-  const [searchTerm, setSearchTerm] = useState('')
+  const [searchTerm, setSearchTerm] = useState('');
+  const { fetchCampaigns, campaigns } = useGoalZilla(); // Using GoalZillaContext for fetching campaigns
 
-  const filteredCampaigns = mockCampaigns.filter(campaign =>
+  // Fetch campaigns when the component mounts
+  useEffect(() => {
+    fetchCampaigns();
+  }, []);
+
+  // Filter campaigns based on the search term
+  const filteredCampaigns = campaigns.filter(campaign =>
     campaign.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
     campaign.category.toLowerCase().includes(searchTerm.toLowerCase())
-  )
+  );
 
   return (
     <div className="min-h-screen bg-[#FFFDF6]">
@@ -64,16 +65,16 @@ export default function CampaignsPage() {
                 <div className="w-full bg-gray-200 rounded-full h-2.5">
                   <div 
                     className="bg-yellow-400 h-2.5 rounded-full" 
-                    style={{ width: `${(campaign.raised / campaign.goal) * 100}%` }}
+                    style={{ width: `${(parseFloat(campaign.totalFunded) / parseFloat(campaign.goalAmount)) * 100}%` }}
                   ></div>
                 </div>
               </div>
               <div className="flex justify-between items-center mb-4">
-                <span className="font-bold">${campaign.raised} raised</span>
-                <span className="text-gray-600">${campaign.goal} goal</span>
+                <span className="font-bold">{parseFloat(campaign.totalFunded).toFixed(2)} ETH raised</span>
+                <span className="text-gray-600">{campaign.goalAmount} ETH goal</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-gray-600">{campaign.daysLeft} days left</span>
+                <span className="text-gray-600">{campaign.duration} days left</span>
                 <Link href={`/campaign/${campaign.id}`}>
                   <Button 
                     className="bg-[#00FF7F] hover:bg-[#00DD7F] text-black font-bold border-2 border-black rounded-md flex items-center gap-2"
@@ -88,6 +89,5 @@ export default function CampaignsPage() {
         </div>
       </main>
     </div>
-  )
+  );
 }
-
