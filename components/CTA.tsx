@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from 'lucide-react'
+import Link from "next/link"
 
 export default function CTA() {
   return (
@@ -23,7 +24,7 @@ export default function CTA() {
           <Button 
             className="bg-black hover:bg-gray-800 text-white font-bold text-xl px-8 py-6 border-4 border-black group"
           >
-            Launch Your Campaign
+           <Link  href="/campaigns" > Launch Your Campaign</Link>
             <ArrowRight className="ml-2 w-6 h-6 transform group-hover:translate-x-2 transition-transform" />
           </Button>
         </motion.div>

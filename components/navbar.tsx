@@ -41,7 +41,7 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
             <Link href="/create-campaign">
               <Button 
-                className="bg-[#00FF7F] hover:bg-[#00DD7F] text-black font-bold border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded-md"
+                className="bg-green-500 hover:bg-green-600 text-black font-bold border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded-md"
               >
                 Create Campaign
               </Button>

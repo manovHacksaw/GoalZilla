@@ -15,7 +15,7 @@ export default function Footer() {
   return (
     <footer className="bg-black text-white py-20">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-12">
           <div className="lg:col-span-2">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -30,12 +30,10 @@ export default function Footer() {
                 <Link href="#" className="hover:text-[#3498db] transition-colors">
                   <Twitter className="w-6 h-6" />
                 </Link>
-                <Link href="#" className="hover:text-[#3498db] transition-colors">
+                <Link href="https://github.com/manovHacksaw/zugrama" className="hover:text-[#3498db] transition-colors">
                   <Github className="w-6 h-6" />
                 </Link>
-                <Link href="#" className="hover:text-[#3498db] transition-colors">
-                  <Discord className="w-6 h-6" />
-                </Link>
+                
               </div>
             </motion.div>
           </div>

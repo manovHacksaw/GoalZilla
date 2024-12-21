@@ -1,104 +1,118 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Search } from 'lucide-react'
-import { Button } from "@/components/ui/button"
+import { ArrowRight, Rocket, Shield, Zap, Coins } from 'lucide-react'
+import { useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
 import Link from "next/link"
+import { Button } from "@/components/ui/button"
 
 export default function Hero() {
+  const targetRef = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start start", "end start"],
+  })
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"])
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+
   return (
     <section className="pt-32 pb-16">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <motion.div 
+          {/* Left Column */}
+          <motion.div
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.6 }}
-            className="bg-[#3498db] p-8 rounded-lg shadow-lg"
+            className="bg-[#4455d4] p-8 border-8 border-black shadow-[8px_8px_0px_0px_rgba(31,41,55,1)] "
           >
-            <motion.h1 
+            <motion.h1
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="text-5xl md:text-6xl font-bold mb-6 text-black"
+              className="text-5xl md:text-6xl font-bold mb-6 text-white"
             >
-              Unlock the power of Web3 Crowdfunding 🚀
+              Unlock the power of {"Web3"} Crowdfunding
             </motion.h1>
-            <motion.p 
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.4 }}
-              className="text-xl mb-8 text-black"
+            <motion.p
+              className="text-xl max-w-lg border-4 border-gray-800 bg-white p-4 shadow-[6px_6px_0px_0px_rgba(31,41,55,1)] text-gray-700 mb-5"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, ease: "easeOut" }}
             >
-              Apply for our milestone-based funding and set your project up for success with transparent, decentralized crowdfunding.
+              Secure funding with milestone-based rewards powered by the decentralized and transparent nature of Web3 technology.
             </motion.p>
-            <motion.div 
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.5 }}
+
+
+            <motion.div
               className="flex gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, ease: "easeOut" }}
             >
-              <Link href="/campaigns" className="flex-1">
-                <Button 
-                  className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all active:translate-x-1 active:translate-y-1 active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+              <Link href="/campaigns">
+                <motion.button
+                  className="bg-green-500 text-white px-8 py-4 text-xl font-bold border-4 border-gray-800 shadow-[6px_6px_0px_0px_rgba(31,41,55,1)] hover:translate-x-1 hover:translate-y-1 transition-all flex items-center gap-2"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  Explore Campaigns
-                </Button>
+                  <Rocket className="w-6 h-6" /> Explore Campaigns
+                </motion.button>
               </Link>
-              <Link href="/create-campaign" className="flex-1">
-                <Button 
-                  className="w-full bg-[#00FF7F] hover:bg-[#00DD7F] text-black font-bold border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all active:translate-x-1 active:translate-y-1 active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+              <Link href="/create-campaign">
+                <motion.button
+                  className="bg-red-500 text-white px-8 py-4 text-xl font-bold border-4 border-gray-800 shadow-[6px_6px_0px_0px_rgba(31,41,55,1)] hover:translate-x-1 hover:translate-y-1 transition-all flex items-center gap-2"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  Create Campaign
-                </Button>
+                  Create Campaign <ArrowRight className="w-6 h-6" />
+                </motion.button>
               </Link>
             </motion.div>
           </motion.div>
-          
-          <motion.div 
-            initial={{ x: 100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
+
+          {/* Right Column - Animated Picture */}
+          <motion.div
+            ref={targetRef}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
-            className="bg-[#FF69B4] p-8 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all"
+            style={{ opacity }}
+            className="relative"
           >
-            <div className="relative">
-              <motion.div 
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.7, type: "spring" }}
-                className="absolute -top-4 -right-4 bg-yellow-400 rounded-full px-4 py-2 border-4 border-black"
-              >
-                <span className="text-2xl font-bold text-[#2c3e50]">100K+</span>
-                <div className="text-sm font-bold text-[#2c3e50]">Active Projects</div>
-              </motion.div>
-              <motion.div 
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.8, type: "spring" }}
-                className="absolute -bottom-4 -right-4 bg-[#00FF7F] rounded-full px-4 py-2 border-4 border-black"
-              >
-                <span className="text-2xl font-bold text-[#ecf0f1]">500+</span>
-                <div className="text-sm font-bold text-[#ecf0f1]">Successful Funds</div>
-              </motion.div>
-              <div className="h-80 bg-white border-4 border-black p-4">
-                <motion.div
-                  animate={{ 
-                    rotate: [0, 5, -5, 0],
-                    y: [0, -10, 0]
-                  }}
-                  transition={{ 
-                    duration: 5,
-                    repeat: Infinity,
-                    repeatType: "reverse"
-                  }}
-                  className="w-32 h-32 bg-[#f39c12] rounded-lg mx-auto"
-                />
+            <motion.div
+              className="relative z-10"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <div className="bg-white border-8 border-black p-8 shadow-[8px_8px_0px_0px_rgba(31,41,55,1)] max-w-md mx-auto">
+                <div className="aspect-square bg-blue-500 rounded-full border-4 border-black flex items-center justify-center">
+                  <Coins className="w-1/2 h-1/2 text-white" />
+                </div>
               </div>
-            </div>
+            </motion.div>
+
+            {/* Floating Elements */}
+            <motion.div
+              className="absolute top-0 right-0 bg-red-500 p-4 border-4 border-black shadow-[4px_4px_0px_0px_rgba(31,41,55,1)] rounded"
+              animate={{ rotate: [-8, 8, -8], y: [0, -8, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <Shield className="w-8 h-8 text-white" />
+            </motion.div>
+
+            <motion.div
+              className="absolute bottom-12 left-0 bg-yellow-400 p-4 border-4 border-black shadow-[4px_4px_0px_0px_rgba(31,41,55,1)] rounded"
+              animate={{ rotate: [8, -8, 8], x: [0, 8, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <Zap className="w-8 h-8 text-gray-800" />
+            </motion.div>
           </motion.div>
         </div>
       </div>
     </section>
   )
 }
-
