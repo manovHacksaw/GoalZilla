@@ -4,21 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "next build && echo 'Skipping lint checks...'",
     "start": "next start",
-    "lint": "next lint",
-    "deploy": "npx hardhat run deployScript.ts --network voltaTestnet"
+    "lint": "next lint"
+   
   },
   "dependencies": {
-    "@nomicfoundation/hardhat-chai-matchers": "^2.0.8",
-    "@nomicfoundation/hardhat-ethers": "^3.0.8",
-    "@nomicfoundation/hardhat-ignition": "^0.15.6",
-    "@nomicfoundation/hardhat-ignition-ethers": "^0.15.6",
-    "@nomicfoundation/hardhat-network-helpers": "^1.0.12",
-    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
-    "@nomicfoundation/hardhat-verify": "^2.0.11",
-    "@nomicfoundation/ignition-core": "^0.15.6",
-    "@nomiclabs/hardhat-ethers": "^2.2.3",
+    
     "@radix-ui/react-slot": "^1.1.1",
     "@react-three/drei": "^9.120.4",
     "@react-three/fiber": "^8.17.10",

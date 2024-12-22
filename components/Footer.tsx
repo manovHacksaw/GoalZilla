@@ -64,7 +64,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
-          <p>© 2024 CrowdFund. All rights reserved.</p>
+          <p>© 2024 GoalZilla. All rights reserved.</p>
         </div>
       </div>
     </footer>
