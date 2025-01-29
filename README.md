@@ -72,6 +72,8 @@ Welcome to **GoalZilla** — your ultimate milestone-based crowdfunding platform
 
 6. **Deploy**: Follow the deployment instructions in the repository to take your GoalZilla instance live.
 
+7. Contract Details at `https://testnet.teloscan.io/address/0x7144Da8697ec83F9f820460C6498DcA90fF20901`
+
 ---
 
 ## 🌟 Join the GoalZilla Movement
