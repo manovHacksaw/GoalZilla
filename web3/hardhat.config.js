@@ -1,10 +1,10 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config();
 
-if (!process.env.PRIVATE_KEY) {
-  console.error("ERROR: PRIVATE_KEY is not set in the .env file.");
-  process.exit(1);
-}
+// if (!process.env.PRIVATE_KEY) {
+//   console.error("ERROR: PRIVATE_KEY is not set in the .env file.");
+//   process.exit(1);
+// }
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -23,11 +23,11 @@ module.exports = {
     },
   },
   networks: {
-    voltaTestnet: {
-      url: "https://volta-rpc.energyweb.org",
-      accounts: [`0x${process.env.PRIVATE_KEY}`],
-      chainId: 73799,
-      gasPrice: 20000000000, // Set custom gas price (20 Gwei)
+    telosEvmTestnet: {
+      url: "https://testnet.telos.net/evm",
+      accounts: [`0x56d62a972cce51fa23d31e87782feec46f727d92aea13ec32a23e157458c983f`],
+      chainId: 41,
+      gasPrice: 1003807803686, // Set custom gas price (20 Gwei)
       gas: 8000000,         // Set custom gas limit
     },
     localhost: {

@@ -204,7 +204,7 @@ export default function CreateCampaign() {
             </div>
             <div>
               <label htmlFor="goal" className="block text-sm font-medium text-gray-700 mb-1">
-                Funding Goal (ETH)
+                Funding Goal (TLOS)
               </label>
               <Input
                 type="number"
@@ -290,7 +290,7 @@ export default function CreateCampaign() {
                     </div>
                     <div className="flex-1">
                       <label className="text-xs text-gray-500 mb-1 block">
-                        Target Amount (ETH)
+                        Target Amount (TLOS)
                       </label>
                       <Input
                         type="number"

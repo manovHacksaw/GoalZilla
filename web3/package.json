@@ -2,7 +2,7 @@
   "name": "hardhat-project",
   "scripts": {
     "test": "npx hardhat run scripts/deploy.js --network localhost",
-    "deploy": "npx hardhat run scripts/deploy.js --network voltaTestnet"
+    "deploy": "npx hardhat run scripts/deploy.js --network telosEvmTestnet"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "^2.0.8",

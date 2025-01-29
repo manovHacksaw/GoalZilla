@@ -70,8 +70,8 @@ export default function CampaignsPage() {
                 </div>
               </div>
               <div className="flex justify-between items-center mb-4">
-                <span className="font-bold">{parseFloat(campaign.totalFunded).toFixed(2)} ETH raised</span>
-                <span className="text-gray-600">{campaign.goalAmount} ETH goal</span>
+                <span className="font-bold">{parseFloat(campaign.totalFunded).toFixed(2)} TLOS raised</span>
+                <span className="text-gray-600">{campaign.goalAmount} TLOS goal</span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-gray-600">{campaign.duration} days left</span>
