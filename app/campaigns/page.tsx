@@ -30,13 +30,15 @@ export default function CampaignsPage() {
       <main className="container mx-auto px-4 pt-24 pb-12">
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-4xl font-bold">Explore Campaigns</h1>
-          <Link href="/create-campaign">
-            <Button 
-              className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all"
+          <div className='gap-20'>
+            
+          <Link href={"/my-campaigns"}>  <Button 
+              className="bg-red-400 hover:bg-red-500 text-black font-bold border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all"
             >
-              Create Campaign
-            </Button>
-          </Link>
+              View My Campaigns
+            </Button> </Link>
+            </div>
+          
         </div>
 
         <div className="relative mb-8">
@@ -70,8 +72,8 @@ export default function CampaignsPage() {
                 </div>
               </div>
               <div className="flex justify-between items-center mb-4">
-                <span className="font-bold">{parseFloat(campaign.totalFunded).toFixed(2)} TLOS raised</span>
-                <span className="text-gray-600">{campaign.goalAmount} TLOS goal</span>
+                <span className="font-bold">{parseFloat(campaign.totalFunded).toFixed(2)} EDU  raised</span>
+                <span className="text-gray-600">{campaign.goalAmount} EDU  goal</span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-gray-600">{campaign.duration} days left</span>

@@ -23,12 +23,11 @@ module.exports = {
     },
   },
   networks: {
-    telosEvmTestnet: {
-      url: "https://testnet.telos.net/evm",
+    educhainTestnet: {
+      url: "https://rpc.open-campus-codex.gelato.digital",
       accounts: [`0x56d62a972cce51fa23d31e87782feec46f727d92aea13ec32a23e157458c983f`],
-      chainId: 41,
-      gasPrice: 1003807803686, // Set custom gas price (20 Gwei)
-      gas: 8000000,         // Set custom gas limit
+      chainId: 656476,
+               // Set custom gas limit
     },
     localhost: {
       url: "http://127.0.0.1:8545", // Local testing with Hardhat/Ganache

@@ -1,12 +1,12 @@
 import abi from "@/web3/artifacts/contracts/GoalZilla.sol/GoalZilla.json"
 
-export const contractAddress = "0x7144Da8697ec83F9f820460C6498DcA90fF20901";
-export const chainIdHex = "0x29"
-export const rpcUrl = "https://testnet.telos.net/evm"
-export const blockScannerUrl = "https://testnet.teloscan.io/"
+export const contractAddress = "0xb5513E201516Ab33ED52c918501980ab875B63D4";
+export const chainIdHex = "0xa045c"
+export const rpcUrl = "https://open-campus-codex-sepolia.drpc.org"
+export const blockScannerUrl = "https://edu-chain-testnet.blockscout.com/"
 export const currency = {
-    name: "Telos EVM Testnet",
-    symbol: "TLOS"
+    name: "EDU Chain Testnet",
+    symbol: "EDU"
 }
 export const contractABI = abi.abi;
 

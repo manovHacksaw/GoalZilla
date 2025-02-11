@@ -7,10 +7,9 @@
     "build": "next build && echo 'Skipping lint checks...'",
     "start": "next start",
     "lint": "next lint"
-   
   },
   "dependencies": {
-    
+    "@radix-ui/react-dialog": "^1.1.6",
     "@radix-ui/react-slot": "^1.1.1",
     "@react-three/drei": "^9.120.4",
     "@react-three/fiber": "^8.17.10",
@@ -32,6 +31,8 @@
     "next": "15.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-markdown": "^9.0.3",
+    "remark-gfm": "^4.0.0",
     "solidity-coverage": "^0.8.13",
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7",
